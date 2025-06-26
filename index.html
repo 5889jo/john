@@ -17,15 +17,275 @@
       <!-- animate css -->
       <link href="assets/css/animate.css" rel="stylesheet">
       <!-- main style css -->
-      <link href="style.css" rel="stylesheet">
+      <style>
+        /* Mobile-first base styles */
+        body {
+          font-family: 'Open Sans', sans-serif;
+          font-size: 16px;
+          line-height: 1.6;
+          color: #333;
+          overflow-x: hidden;
+        }
+        
+        /* Header and navigation */
+        .header-area {
+          padding: 15px 0;
+          position: fixed;
+          width: 100%;
+          z-index: 999;
+          background: rgba(255, 255, 255, 0.95);
+          box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .menu-trigger {
+          font-size: 24px;
+          color: #333;
+          cursor: pointer;
+          display: block;
+          padding: 5px;
+        }
+        
+        .mainmanu {
+          display: none;
+        }
+        
+        /* Hero section */
+        .slide-area {
+          padding-top: 70px; /* Account for fixed header */
+        }
+        
+        .slide-area-overlay {
+          padding: 30px 0;
+        }
+        
+        .single-slide {
+          text-align: center;
+        }
+        
+        .hero-absulate-img {
+          max-width: 100%;
+          height: auto;
+          margin-top: 20px;
+        }
+        
+        /* Buttons */
+        .boxed-btn, .borderd-btn {
+          display: inline-block;
+          padding: 10px 20px;
+          margin: 10px 5px;
+          border-radius: 4px;
+          font-weight: 600;
+          text-transform: uppercase;
+          font-size: 14px;
+          transition: all 0.3s ease;
+        }
+        
+        .boxed-btn {
+          background: #FF6B6B;
+          color: white;
+          border: 2px solid #FF6B6B;
+        }
+        
+        .borderd-btn {
+          background: transparent;
+          color: #333;
+          border: 2px solid #333;
+        }
+        
+        /* Section padding */
+        .section-padding {
+          padding: 60px 0;
+        }
+        
+        /* About section */
+        .about-me img {
+          max-width: 100%;
+          height: auto;
+          margin-bottom: 30px;
+        }
+        
+        /* Portfolio */
+        .single-portfolio {
+          margin-bottom: 15px;
+        }
+        
+        /* Services */
+        .single-service {
+          margin-bottom: 30px;
+          text-align: center;
+        }
+        
+        .service-icon {
+          font-size: 40px;
+          margin-bottom: 15px;
+          color: #FF6B6B;
+        }
+        
+        /* Testimonials */
+        .single-testmolial {
+          padding: 20px;
+        }
+        
+        .author-img img {
+          width: 80px;
+          height: 80px;
+          border-radius: 50%;
+          margin: 0 auto 15px;
+        }
+        
+        /* Contact form */
+        .contact-form input, 
+        .contact-form textarea {
+          width: 100%;
+          padding: 10px;
+          margin-bottom: 15px;
+          border: 1px solid #ddd;
+          border-radius: 4px;
+        }
+        
+        /* Footer */
+        .footer-area {
+          padding: 20px 0;
+          text-align: center;
+          background: #f8f8f8;
+        }
+        
+        .social-media a {
+          display: inline-block;
+          margin: 0 5px;
+          color: #333;
+          font-size: 18px;
+        }
+        
+        /* Off-canvas menu */
+        .off-canvas-menu {
+          position: fixed;
+          top: 0;
+          left: -280px;
+          width: 280px;
+          height: 100%;
+          background: #fff;
+          z-index: 9999;
+          transition: all 0.3s ease;
+          padding: 20px;
+          box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+        }
+        
+        .off-canvas-menu.active {
+          left: 0;
+        }
+        
+        .off-canvas-menu-shade {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(0,0,0,0.5);
+          z-index: 9998;
+          opacity: 0;
+          visibility: hidden;
+          transition: all 0.3s ease;
+        }
+        
+        .off-canvas-menu-shade.active {
+          opacity: 1;
+          visibility: visible;
+        }
+        
+        .menu-close {
+          position: absolute;
+          top: 15px;
+          right: 15px;
+          font-size: 24px;
+          cursor: pointer;
+        }
+        
+        #offcanvas-menu {
+          list-style: none;
+          padding: 0;
+          margin-top: 40px;
+        }
+        
+        #offcanvas-menu li {
+          margin-bottom: 15px;
+        }
+        
+        #offcanvas-menu li a {
+          color: #333;
+          text-decoration: none;
+          font-size: 16px;
+        }
+        
+        /* Tablet and desktop styles */
+        @media (min-width: 768px) {
+          .menu-trigger {
+            display: none;
+          }
+          
+          .mainmanu {
+            display: block !important;
+          }
+          
+          #navigation {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+          }
+          
+          #navigation li {
+            display: inline-block;
+            margin-left: 20px;
+          }
+          
+          #navigation li a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 14px;
+          }
+          
+          .slide-area-overlay {
+            padding: 100px 0;
+          }
+          
+          .single-slide {
+            text-align: left;
+          }
+          
+          .hero-absulate-img {
+            margin-top: 0;
+          }
+          
+          .single-service {
+            text-align: left;
+          }
+          
+          .service-icon {
+            float: left;
+            margin-right: 20px;
+            font-size: 30px;
+          }
+          
+          .footer-area {
+            text-align: left;
+          }
+          
+          .social-media {
+            text-align: right;
+          }
+        }
+        
+        /* Large desktop styles */
+        @media (min-width: 992px) {
+          .section-padding {
+            padding: 100px 0;
+          }
+        }
+      </style>
       <!-- responsive css -->
       <link href="assets/css/responsive.css" rel="stylesheet">
-      <!-- colors css -->
-      <!--<link rel="stylesheet" href="assets/css/colors/default.css" title="default"> -->
-      <!-- <link rel="stylesheet" href="assets/css/colors/purple.css" title="purple">  -->
-      <!-- <link rel="stylesheet" href="assets/css/colors/cyan.css" title="cyan">  -->
-      <!-- <link rel="stylesheet" href="assets/css/colors/alizarin.css" title="alizarin">  -->
-      <!-- <link rel="stylesheet" href="assets/css/colors/green.css" title="green">  -->
     </head>
     <body>
         <!-- ================  Preloder area Start ================ -->
@@ -63,10 +323,10 @@
           <div class="header-area">
              <div class="container">
               <div class="row">
-                <div class="col-sm-2">
+                <div class="col-xs-2">
                   <span class="menu-trigger"><i class="fa fa-bars"></i></span>
                 </div>
-                 <div class="col-sm-10 text-right">
+                 <div class="col-xs-10 text-right">
                    <div class="mainmanu">
                      <ul id="navigation">
                        <li><a href="#homeee" class="active">Home</a></li>
@@ -86,12 +346,12 @@
         </div>
         <!-- ============  Slider area =========== -->
         <div class="slide-area">
-           <div class="slide-area-overlay pdt-100">
+           <div class="slide-area-overlay">
             <div class="slide-active">
               <div class="single-slide">
                 <div class="container">
                   <div class="row">
-                    <div class="col-sm-7">
+                    <div class="col-md-7 col-sm-12">
                       <h1>JOHN KASENEGALA</h1>
                       <h3>Graphic and web Designer</h3>
                       <p>A dedicated graphic and website designer with a deep love for all things design. I've spent countless hours honing my skills and nurturing my passion for visual storytelling, 
@@ -99,7 +359,7 @@
                       <a href="#" class="boxed-btn">Hire me</a>
                       <a href="#" class="borderd-btn">Resume</a>
                     </div>
-                    <div class="col-sm-5">
+                    <div class="col-md-5 col-sm-12">
                       <img class="hero-absulate-img" src="assets/img/absulate-img-1.png" alt="">
                     </div>
                   </div>
@@ -108,7 +368,7 @@
               <div class="single-slide">
                 <div class="container">
                   <div class="row">
-                    <div class="col-sm-7">
+                    <div class="col-md-7 col-sm-12">
                       <h1>JOHN KASENEGALA</h1>
                       <h3>Graphic and web Designer</h3>
                       <p>I believe that great design is not just about aesthetics; it's about creating seamless, user-friendly experiences. My designs are a harmonious blend of beauty and functionality,
@@ -116,7 +376,7 @@
                       <a href="" class="boxed-btn">Hire me</a>
                       <a href="" class="borderd-btn">Resume</a>
                     </div>
-                    <div class="col-sm-5">
+                    <div class="col-md-5 col-sm-12">
                       <img class="hero-absulate-img" src="assets/img/absulate-img-1.png" alt="">
                     </div>
                   </div>
@@ -125,7 +385,7 @@
               <div class="single-slide">
                 <div class="container">
                   <div class="row">
-                    <div class="col-sm-7">
+                    <div class="col-md-7 col-sm-12">
                       <h1>JOHN KASENEGALA</h1>
                       <h3>Graphic and web designer</h3>
                       <p>I breathe life into digital spaces. From sleek, minimalist portfolios to dynamic e-commerce platforms, 
@@ -133,7 +393,7 @@
                       <a href="" class="boxed-btn">Hire me</a>
                       <a href="" class="borderd-btn">Resume</a>
                     </div>
-                    <div class="col-sm-5">
+                    <div class="col-md-5 col-sm-12">
                       <img class="hero-absulate-img" src="assets/img/absulate-img-1.png" alt="">
                     </div>
                   </div>
@@ -146,10 +406,10 @@
          <div class="section-padding about-me padding-bottom-0 wow fadeInDown" id="about">
            <div class="container">
              <div class="row">
-               <div class="col-md-6">
-                 <img src="assets/img/about-me.jpg" alt="">
+               <div class="col-md-6 col-sm-12">
+                 <img src="assets/img/about-me.jpg" alt="" class="img-responsive">
                </div>
-               <div class="col-md-6">
+               <div class="col-md-6 col-sm-12">
                  <h2>About me</h2>
                  <p><b>I'm John kasenegala</b>
                   a Passionate Graphic Designer
@@ -178,9 +438,6 @@
                   
                  <br>
                   
-                  
-                  
-</p>
                 <div class="about-btn">
                    <a href="" class="boxed-btn">Get Resume</a>
                    <a href="" class="borderd-btn">See Portfolio</a>
@@ -193,7 +450,7 @@
          <div class="section-padding" id="portfolio">
            <div class="container">
              <div class="row text-center wow fadeInDown">
-               <div class="col-md-6 col-md-offset-3">
+               <div class="col-md-6 col-md-offset-3 col-sm-12">
                  <div class="section-title">
                    <h2>The Portfolio</h2>
                    <p>A passionate graphic and web designer with a knack for 
@@ -288,7 +545,7 @@
           <div class="section-padding service-area" id="service">
             <div class="container">
               <div class="row text-center wow fadeInDown">
-                <div class="col-md-6 col-md-offset-3">
+                <div class="col-md-6 col-md-offset-3 col-sm-12">
                   <div class="section-title">
                     <h2>my services</h2>
                     <p>I offer a wide range of design services to help you establish a strong online and offline presence.</p>
@@ -298,7 +555,7 @@
               <div class="row">
                 <div class="col-md-10 col-md-offset-1 col-sm-12">
                   <div class="row">
-                    <div class="col-md-6 wow fadeInDown">
+                    <div class="col-md-6 col-sm-12 wow fadeInDown">
                       <div class="single-service">
                         <div class="service-icon">
                           <i class="fa fa-gears"></i>
@@ -307,7 +564,7 @@
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod tempor incididunt labore dolore aliqua....</p>
                       </div>
                     </div>
-                    <div class="col-md-6 wow fadeInDown">
+                    <div class="col-md-6 col-sm-12 wow fadeInDown">
                       <div class="single-service">
                         <div class="service-icon">
                           <i class="fa fa-image"></i>
@@ -316,7 +573,7 @@
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod tempor incididunt labore dolore aliqua....</p>
                       </div>
                     </div>
-                    <div class="col-md-6 wow fadeInDown">
+                    <div class="col-md-6 col-sm-12 wow fadeInDown">
                       <div class="single-service">
                         <div class="service-icon">
                           <i class="fa fa-building"></i>
@@ -325,7 +582,7 @@
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod tempor incididunt labore dolore aliqua....</p>
                       </div>
                     </div>
-                    <div class="col-md-6 wow fadeInDown">
+                    <div class="col-md-6 col-sm-12 wow fadeInDown">
                       <div class="single-service">
                         <div class="service-icon">
                           <i class="fa fa-industry"></i>
@@ -343,10 +600,10 @@
           <div class="section-padding" id="skill">
             <div class="container">
               <div class="row wow fadeInDown">
-                <div class="col-md-5">
-                  <img src="assets/img/skill.jpg" alt="">
+                <div class="col-md-5 col-sm-12">
+                  <img src="assets/img/skill.jpg" alt="" class="img-responsive" style="margin-bottom: 30px;">
                 </div>
-                <div class="col-md-6 col-md-offset-1">
+                <div class="col-md-6 col-md-offset-1 col-sm-12">
                   <h2>Professional Skills</h2>
                   <p>I'm a passionate and experienced graphic and web designer with a strong eye 
                     for visual aesthetics and a commitment to creating engaging and user-friendly designs.
@@ -386,7 +643,7 @@
           <div class="section-padding my-blog" id="blog">
             <div class="container">
               <div class="row text-center wow fadeInDown">
-                <div class="col-md-6 col-md-offset-3">
+                <div class="col-md-6 col-md-offset-3 col-sm-12">
                   <div class="section-title">
                     <h2>latest blog post</h2>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod tempor incididunt labore dolore aliqua eiusmod tempor incididunt labore</p>
@@ -394,7 +651,7 @@
                 </div>
               </div>
               <div class="row wow fadeInDown">
-                <div class="col-md-4 col-sm-6">
+                <div class="col-md-4 col-sm-6 col-xs-12">
                   <div class="single-blog">
                     <a href="blog-details.html" class="blog-bg blog-bg-1"></a>
                     <a href="blog-details.html"><h4>Portfolio Showcase</h4></a>
@@ -412,18 +669,18 @@
                       Visuals:</p>
                   </div>
                 </div>
-                <div class="col-md-4 col-sm-6">
+                <div class="col-md-4 col-sm-6 col-xs-12">
                   <div class="single-blog">
                     <a href="blog-details.html" class="blog-bg blog-bg-3"></a>
                     <a href="blog-details.html"><h4>Before & After Design Transformation</h4></a>
                     <p> Every Brand Deserves a Stunning Identity! 🚀 Check out this amazing before-and-after transformation for [Brand Name]. From a simple concept to a bold new look!
 
-                      Need a fresh perspective for your brand? Let’s work together! 📞 Get in touch for a customized solution that fits your vision.
+                      Need a fresh perspective for your brand? Let's work together! 📞 Get in touch for a customized solution that fits your vision.
                       
                       </p>
                   </div>
                 </div>
-                <div class="col-md-4 col-sm-6">
+                <div class="col-md-4 col-sm-6 col-xs-12">
                   <div class="single-blog">
                     <a href="blog-details.html" class="blog-bg blog-bg-2"></a>
                     <a href="blog-details.html"><h4>Tips for Building a Great Website</h4></a>
@@ -444,7 +701,7 @@
           <div class="section-padding" id="feedback">
             <div class="container">
               <div class="row text-center wow fadeInDown">
-                <div class="col-md-6 col-md-offset-3">
+                <div class="col-md-6 col-md-offset-3 col-sm-12">
                   <div class="section-title">
                     <h2>Clients Feedback</h2>
                     <p>Your feedback is 
@@ -455,7 +712,7 @@
                 </div>
               </div>
               <div class="row wow fadeInDown">
-                <div class="col-md-10 col-md-offset-1">
+                <div class="col-md-10 col-md-offset-1 col-sm-12">
                   <div class="testmonial-active">
                     <div class="single-testmolial text-center">
                       <div class="author-img">
@@ -530,7 +787,7 @@
           <div class="section-padding contact-me" id="contact">
             <div class="container">
               <div class="row text-center wow fadeInDown">
-                <div class="col-md-6 col-md-offset-3">
+                <div class="col-md-6 col-md-offset-3 col-sm-12">
                   <div class="section-title">
                     <h2>Get in touch</h2>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod tempor incididunt labore dolore aliqua eiusmod tempor incididunt labore</p>
@@ -538,14 +795,14 @@
                 </div>
               </div>
               <div class="row wow fadeInDown">
-                <div class="col-md-8 col-md-offset-2">
+                <div class="col-md-8 col-md-offset-2 col-sm-12">
                   <div class="contact-form">
                     <form action="index.html">
                       <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-6 col-sm-12">
                           <input type="text" placeholder="Full Name">
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-6 col-sm-12">
                           <input type="email" placeholder="Email">
                         </div>
                       </div>
@@ -561,10 +818,10 @@
           <div class="footer-area">
             <div class="container">
               <div class="row">
-                <div class="col-sm-6">
+                <div class="col-sm-6 col-xs-12">
                   <p>&copy; 2023 John Kasenegala- All Right Reserved</p>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-6 col-xs-12">
                   <div class="social-media text-right">
                     <a href=""><i class="fa fa-facebook"></i></a>
                     <a href=""><i class="fa fa-twitter"></i></a>
@@ -595,5 +852,26 @@
         <script src="assets/js/jquery.nav.js"></script>
         <!-- Custom/ Main JS -->
         <script src="assets/js/main.js"></script>
+        
+        <script>
+          // Mobile menu toggle
+          $(document).ready(function(){
+            $('.menu-trigger').click(function(){
+              $('.off-canvas-menu').addClass('active');
+              $('.off-canvas-menu-shade').addClass('active');
+            });
+            
+            $('.menu-close, .off-canvas-menu-shade').click(function(){
+              $('.off-canvas-menu').removeClass('active');
+              $('.off-canvas-menu-shade').removeClass('active');
+            });
+            
+            // Smooth scrolling for off-canvas menu links
+            $('#offcanvas-menu a').click(function(){
+              $('.off-canvas-menu').removeClass('active');
+              $('.off-canvas-menu-shade').removeClass('active');
+            });
+          });
+        </script>
     </body>
 </html>
