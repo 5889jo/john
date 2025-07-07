@@ -379,7 +379,7 @@ input[type="submit"]:hover, button[type="submit"]:hover {
 /*=====================================
   Portfolio CSS
 =======================================*/
-.portfolio-bg-1{background-image: url(assets/img/portfolio-1.jpg);}
+.portfolio-bg-1 { background-image: url(assets/img/portfolio/portfolio-1.jpg); }
 .portfolio-bg-2{background-image: url(assets/img/portfolio-2.jpg);}
 .portfolio-bg-3{background-image: url(assets/img/portfolio-3.jpg);}
 .portfolio-bg-4{background-image: url(assets/img/portfolio-4.jpg);}
@@ -595,8 +595,8 @@ input[type="submit"]:hover, button[type="submit"]:hover {
   margin-bottom: 50px;
   overflow: inherit;
 }
-@-moz-keyframes animate-positive { 0%  { width:0px;} 100%}
-@-webkit-keyframes animate-positive  { 0%  { width:0px;} 100%}
+@-moz-keyframes animate-positive { 0%  { width:0px;} 100% { width:100%; } }
+
 /*=====================================
   Blog CSS
 =======================================*/
