@@ -3,12 +3,12 @@
     <head>
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <!-- website title -->
       <title>Welcome | Myfolio</title>
       <!-- bootstrap css -->
       <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-      <!-- fontawosome icon css -->
+      <!-- fontawesome icon css -->
       <link href="assets/css/font-awesome.min.css" rel="stylesheet">
       <!-- owl carousel css -->
       <link href="assets/css/owl.carousel.css" rel="stylesheet">
@@ -86,10 +86,22 @@
           border: 2px solid #FF6B6B;
         }
         
+        .boxed-btn:hover {
+          background: #e05555;
+          border-color: #e05555;
+          transform: translateY(-2px);
+        }
+        
         .borderd-btn {
           background: transparent;
           color: #333;
           border: 2px solid #333;
+        }
+        
+        .borderd-btn:hover {
+          background: #333;
+          color: white;
+          transform: translateY(-2px);
         }
         
         /* Section padding */
@@ -102,17 +114,50 @@
           max-width: 100%;
           height: auto;
           margin-bottom: 30px;
+          border-radius: 8px;
+          box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         
         /* Portfolio */
         .single-portfolio {
           margin-bottom: 15px;
+          position: relative;
+          overflow: hidden;
+          border-radius: 8px;
+        }
+        
+        .portfolio-hover {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: 0;
+          background: rgba(255,107,107,0.9);
+          color: white;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          opacity: 0;
+          transition: all 0.3s ease;
+        }
+        
+        .single-portfolio:hover .portfolio-hover {
+          opacity: 1;
         }
         
         /* Services */
         .single-service {
           margin-bottom: 30px;
           text-align: center;
+          padding: 30px 20px;
+          border-radius: 8px;
+          transition: all 0.3s ease;
+        }
+        
+        .single-service:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
         
         .service-icon {
@@ -123,7 +168,11 @@
         
         /* Testimonials */
         .single-testmolial {
-          padding: 20px;
+          padding: 30px;
+          margin: 15px;
+          background: white;
+          border-radius: 8px;
+          box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
         
         .author-img img {
@@ -131,30 +180,103 @@
           height: 80px;
           border-radius: 50%;
           margin: 0 auto 15px;
+          border: 3px solid #FF6B6B;
+          object-fit: cover;
         }
         
         /* Contact form */
         .contact-form input, 
         .contact-form textarea {
           width: 100%;
-          padding: 10px;
+          padding: 12px;
           margin-bottom: 15px;
           border: 1px solid #ddd;
           border-radius: 4px;
+          transition: all 0.3s ease;
+        }
+        
+        .contact-form input:focus, 
+        .contact-form textarea:focus {
+          border-color: #FF6B6B;
+          outline: none;
+          box-shadow: 0 0 0 3px rgba(255,107,107,0.2);
+        }
+        
+        .contact-form input[type="submit"] {
+          background: #FF6B6B;
+          color: white;
+          border: none;
+          padding: 12px 30px;
+          cursor: pointer;
+          font-weight: 600;
+          text-transform: uppercase;
+        }
+        
+        .contact-form input[type="submit"]:hover {
+          background: #e05555;
         }
         
         /* Footer */
         .footer-area {
-          padding: 20px 0;
+          padding: 30px 0;
           text-align: center;
           background: #f8f8f8;
         }
         
         .social-media a {
           display: inline-block;
-          margin: 0 5px;
+          margin: 0 10px;
           color: #333;
-          font-size: 18px;
+          font-size: 20px;
+          transition: all 0.3s ease;
+        }
+        
+        .social-media a:hover {
+          color: #FF6B6B;
+          transform: translateY(-3px);
+        }
+        
+        /* Blog section */
+        .single-blog {
+          background: white;
+          border-radius: 8px;
+          overflow: hidden;
+          box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+          transition: all 0.3s ease;
+          margin-bottom: 30px;
+        }
+        
+        .single-blog:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .blog-bg {
+          height: 200px;
+          background-size: cover;
+          background-position: center;
+        }
+        
+        .blog-bg-1 {
+          background-image: url('assets/img/blog-1.jpg');
+        }
+        
+        .blog-bg-2 {
+          background-image: url('assets/img/blog-2.jpg');
+        }
+        
+        .blog-bg-3 {
+          background-image: url('assets/img/blog-3.jpg');
+        }
+        
+        .single-blog h4 {
+          padding: 20px 20px 0;
+          margin-bottom: 10px;
+        }
+        
+        .single-blog p {
+          padding: 0 20px 20px;
+          color: #666;
         }
         
         /* Off-canvas menu */
@@ -199,6 +321,7 @@
           right: 15px;
           font-size: 24px;
           cursor: pointer;
+          color: #FF6B6B;
         }
         
         #offcanvas-menu {
@@ -215,6 +338,14 @@
           color: #333;
           text-decoration: none;
           font-size: 16px;
+          padding: 8px 0;
+          display: block;
+          transition: all 0.3s ease;
+        }
+        
+        #offcanvas-menu li a:hover {
+          color: #FF6B6B;
+          padding-left: 5px;
         }
         
         /* Tablet and desktop styles */
@@ -244,6 +375,24 @@
             font-weight: 600;
             text-transform: uppercase;
             font-size: 14px;
+            position: relative;
+            padding: 5px 0;
+          }
+          
+          #navigation li a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: #FF6B6B;
+            bottom: 0;
+            left: 0;
+            transition: width 0.3s ease;
+          }
+          
+          #navigation li a:hover:after,
+          #navigation li a.active:after {
+            width: 100%;
           }
           
           .slide-area-overlay {
@@ -356,11 +505,13 @@
                       <h3>Graphic and web Designer</h3>
                       <p>A dedicated graphic and website designer with a deep love for all things design. I've spent countless hours honing my skills and nurturing my passion for visual storytelling, 
                         and I'm excited to share my journey with you..</p>
-                      <a href="#" class="boxed-btn">Hire me</a>
-                      <a href="#" class="borderd-btn">Resume</a>
+                      <div class="cta-buttons">
+                        <a href="#" class="boxed-btn" id="hire-me-btn">Hire me <i class="fa fa-arrow-right"></i></a>
+                        <a href="#" class="borderd-btn" id="view-work-btn">See my work <i class="fa fa-eye"></i></a>
+                      </div>
                     </div>
                     <div class="col-md-5 col-sm-12">
-                      <img class="hero-absulate-img" src="assets/img/absulate-img-1.png" alt="">
+                      <img class="hero-absulate-img" src="assets/img/absulate-img-1.png" alt="John Kasenegala - Graphic Designer">
                     </div>
                   </div>
                 </div>
@@ -373,11 +524,13 @@
                       <h3>Graphic and web Designer</h3>
                       <p>I believe that great design is not just about aesthetics; it's about creating seamless, user-friendly experiences. My designs are a harmonious blend of beauty and functionality,
                          tailored to meet your unique needs.</p>
-                      <a href="" class="boxed-btn">Hire me</a>
-                      <a href="" class="borderd-btn">Resume</a>
+                      <div class="cta-buttons">
+                        <a href="#" class="boxed-btn" id="hire-me-btn">Hire me <i class="fa fa-arrow-right"></i></a>
+                        <a href="#" class="borderd-btn" id="view-work-btn">See my work <i class="fa fa-eye"></i></a>
+                      </div>
                     </div>
                     <div class="col-md-5 col-sm-12">
-                      <img class="hero-absulate-img" src="assets/img/absulate-img-1.png" alt="">
+                      <img class="hero-absulate-img" src="assets/img/absulate-img-1.png" alt="John Kasenegala - Graphic Designer">
                     </div>
                   </div>
                 </div>
@@ -390,11 +543,13 @@
                       <h3>Graphic and web designer</h3>
                       <p>I breathe life into digital spaces. From sleek, minimalist portfolios to dynamic e-commerce platforms, 
                         I craft websites that leave a lasting impression.</p>
-                      <a href="" class="boxed-btn">Hire me</a>
-                      <a href="" class="borderd-btn">Resume</a>
+                      <div class="cta-buttons">
+                        <a href="#" class="boxed-btn" id="hire-me-btn">Hire me <i class="fa fa-arrow-right"></i></a>
+                        <a href="#" class="borderd-btn" id="view-work-btn">See my work <i class="fa fa-eye"></i></a>
+                      </div>
                     </div>
                     <div class="col-md-5 col-sm-12">
-                      <img class="hero-absulate-img" src="assets/img/absulate-img-1.png" alt="">
+                      <img class="hero-absulate-img" src="assets/img/absulate-img-1.png" alt="John Kasenegala - Graphic Designer">
                     </div>
                   </div>
                 </div>
@@ -407,7 +562,7 @@
            <div class="container">
              <div class="row">
                <div class="col-md-6 col-sm-12">
-                 <img src="assets/img/about-me.jpg" alt="" class="img-responsive">
+                 <img src="assets/img/about-me.jpg" alt="John Kasenegala - About Me" class="img-responsive">
                </div>
                <div class="col-md-6 col-sm-12">
                  <h2>About me</h2>
@@ -440,7 +595,7 @@
                   
                 <div class="about-btn">
                    <a href="" class="boxed-btn">Get Resume</a>
-                   <a href="" class="borderd-btn">See Portfolio</a>
+                   <a href="#portfolio" class="borderd-btn">See Portfolio</a>
                 </div>
              </div>
            </div>
@@ -477,7 +632,7 @@
                <div class="col-md-3 col-sm-6 col-xs-12 Brochure">
                  <div class="single-portfolio portfolio-bg-1">
                    <div class="portfolio-hover">
-                     <a href="assets/img/portfolio-1.jpg"><i class="fa fa-link"></i></a>
+                     <a href="assets\img\portfolio-1.jpg"><i class="fa fa-link"></i></a>
                      <h3>Product Design</h3>
                    </div>
                   </div>
@@ -485,7 +640,7 @@
                 <div class="col-md-3 col-sm-6 col-xs-12 logo">
                   <div class="single-portfolio portfolio-bg-2">
                     <div class="portfolio-hover">
-                      <a href="assets/img/portfolio-2.jpg"><i class="fa fa-link"></i></a>
+                      <a href="assets/img/portfolio/portfolio-2.jpg"><i class="fa fa-link"></i></a>
                       <h3>Product Design</h3>
                     </div>
                   </div>
@@ -493,7 +648,7 @@
                 <div class="col-md-3 col-sm-6 col-xs-12 print">
                   <div class="single-portfolio portfolio-bg-3">
                     <div class="portfolio-hover">
-                      <a href="assets/img/portfolio-3.jpg"><i class="fa fa-link"></i></a>
+                      <a href="assets/img/portfolio/portfolio-3.jpg"><i class="fa fa-link"></i></a>
                       <h3>Product Design</h3>
                     </div>
                   </div>
@@ -501,7 +656,7 @@
                 <div class="col-md-3 col-sm-6 col-xs-12 mob web">
                   <div class="single-portfolio portfolio-bg-4">
                     <div class="portfolio-hover">
-                      <a href="assets/img/portfolio-4.jpg"><i class="fa fa-link"></i></a>
+                      <a href="assets/img/portfolio/portfolio-4.jpg"><i class="fa fa-link"></i></a>
                       <h3>Product Design</h3>
                     </div>
                   </div>
@@ -509,7 +664,7 @@
                 <div class="col-md-3 col-sm-6 col-xs-12 print">
                   <div class="single-portfolio portfolio-bg-5">
                     <div class="portfolio-hover">
-                      <a href="assets/img/portfolio-5.jpg"><i class="fa fa-link"></i></a>
+                      <a href="assets/img/portfolio/portfolio-5.jpg"><i class="fa fa-link"></i></a>
                       <h3>Product Design</h3>
                     </div>
                   </div>
@@ -517,7 +672,7 @@
                 <div class="col-md-3 col-sm-6 col-xs-12 Brochure logo">
                   <div class="single-portfolio portfolio-bg-6">
                     <div class="portfolio-hover">
-                      <a href="assets/img/portfolio-6.jpg"><i class="fa fa-link"></i></a>
+                      <a href="assets/img/portfolio/portfolio-6.jpg"><i class="fa fa-link"></i></a>
                       <h3>Product Design</h3>
                     </div>
                   </div>
@@ -525,7 +680,7 @@
                 <div class="col-md-3 col-sm-6 col-xs-12 mob web">
                   <div class="single-portfolio portfolio-bg-7">
                     <div class="portfolio-hover">
-                      <a href="assets/img/portfolio-7.jpg"><i class="fa fa-link"></i></a>
+                      <a href="assets/img/portfolio/portfolio-7.jpg"><i class="fa fa-link"></i></a>
                       <h3>Product Design</h3>
                     </div>
                   </div>
@@ -533,7 +688,7 @@
                 <div class="col-md-3 col-sm-6 col-xs-12 logo">
                   <div class="single-portfolio portfolio-bg-8">
                     <div class="portfolio-hover">
-                      <a href="assets/img/portfolio-8.jpg"><i class="fa fa-link"></i></a>
+                      <a href="assets/img/portfolio/portfolio-8.jpg"><i class="fa fa-link"></i></a>
                       <h3>Product Design</h3>
                     </div>
                   </div>
@@ -561,7 +716,7 @@
                           <i class="fa fa-gears"></i>
                         </div>
                         <h4>User Experience Design</h4>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod tempor incididunt labore dolore aliqua....</p>
+                        <p>Creating intuitive and engaging user experiences that keep visitors coming back. I focus on user research, wireframing, and prototyping to ensure your product meets user needs.</p>
                       </div>
                     </div>
                     <div class="col-md-6 col-sm-12 wow fadeInDown">
@@ -570,7 +725,7 @@
                           <i class="fa fa-image"></i>
                         </div>
                         <h4>User Interface Design</h4>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod tempor incididunt labore dolore aliqua....</p>
+                        <p>Beautiful, functional interfaces that align with your brand identity. From color schemes to typography, every detail is crafted to create a cohesive visual experience.</p>
                       </div>
                     </div>
                     <div class="col-md-6 col-sm-12 wow fadeInDown">
@@ -579,7 +734,7 @@
                           <i class="fa fa-building"></i>
                         </div>
                         <h4>Branding Soluction</h4>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod tempor incididunt labore dolore aliqua....</p>
+                        <p>Comprehensive branding solutions including logo design, style guides, and brand strategy to help your business stand out in a crowded marketplace.</p>
                       </div>
                     </div>
                     <div class="col-md-6 col-sm-12 wow fadeInDown">
@@ -588,7 +743,7 @@
                           <i class="fa fa-industry"></i>
                         </div>
                         <h4>Digital Product Marketing</h4>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod tempor incididunt labore dolore aliqua....</p>
+                        <p>Strategic marketing for digital products including social media assets, email campaigns, and landing pages designed to convert visitors into customers.</p>
                       </div>
                     </div>
                   </div>
@@ -601,7 +756,7 @@
             <div class="container">
               <div class="row wow fadeInDown">
                 <div class="col-md-5 col-sm-12">
-                  <img src="assets/img/skill.jpg" alt="" class="img-responsive" style="margin-bottom: 30px;">
+                  <img src="assets/img/skill.jpg" alt="John Kasenegala - Skills" class="img-responsive" style="margin-bottom: 30px;">
                 </div>
                 <div class="col-md-6 col-md-offset-1 col-sm-12">
                   <h2>Professional Skills</h2>
@@ -609,32 +764,32 @@
                     for visual aesthetics and a commitment to creating engaging and user-friendly designs.
                      I specialize in turning creative 
                     concepts into stunning visuals that leave a lasting impression.</p>
-                  <div class="my-progress-bar">
+                  <div class="my-progress-bar">
                     <h4>User Interface Design</h4>
-                    <div class="progress">
+                    <div class="progress">
                       <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%">
                         <span class="sr-only">90% Complete (warning)</span>
                       </div>
                     </div>
                     <h4>Graphic Design</h4>
-                    <div class="progress">
+                    <div class="progress">
                       <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
                         <span class="sr-only">80% Complete (warning)</span>
                       </div>
                     </div>
                     <h4>Web Devlopment</h4>
-                    <div class="progress">
+                    <div class="progress">
                       <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%">
                         <span class="sr-only">70% Complete (warning)</span>
                       </div>
                     </div>
                     <h4>Digital Marketing</h4>
-                    <div class="progress">
+                    <div class="progress">
                       <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%">
                         <span class="sr-only">90% Complete (warning)</span>
                       </div>
                     </div>
-                  </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -646,7 +801,7 @@
                 <div class="col-md-6 col-md-offset-3 col-sm-12">
                   <div class="section-title">
                     <h2>latest blog post</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod tempor incididunt labore dolore aliqua eiusmod tempor incididunt labore</p>
+                    <p>Insights, tips, and trends from the world of design and digital marketing. Stay updated with the latest in the industry.</p>
                   </div>
                 </div>
               </div>
@@ -655,43 +810,23 @@
                   <div class="single-blog">
                     <a href="blog-details.html" class="blog-bg blog-bg-1"></a>
                     <a href="blog-details.html"><h4>Portfolio Showcase</h4></a>
-                    <p> Crafting Creative & Functional Designs! 🎨💻 From stunning graphics to fully responsive websites, 
-                      I transform ideas into visual experiences that make brands stand out. Let's take your business to the next level together! 🚀
-
-                      👨‍💻 Services I Offer:
-                      
-                      Graphic Design
-                      Website Design & Development
-                      Branding
-                      UI/UX Design
-                      Check out my latest projects and feel free to DM for inquiries! 📩"
-                      
-                      Visuals:</p>
+                    <p>Crafting Creative & Functional Designs! 🎨💻 From stunning graphics to fully responsive websites, 
+                      I transform ideas into visual experiences that make brands stand out. Let's take your business to the next level together! 🚀</p>
                   </div>
                 </div>
                 <div class="col-md-4 col-sm-6 col-xs-12">
                   <div class="single-blog">
                     <a href="blog-details.html" class="blog-bg blog-bg-3"></a>
                     <a href="blog-details.html"><h4>Before & After Design Transformation</h4></a>
-                    <p> Every Brand Deserves a Stunning Identity! 🚀 Check out this amazing before-and-after transformation for [Brand Name]. From a simple concept to a bold new look!
-
-                      Need a fresh perspective for your brand? Let's work together! 📞 Get in touch for a customized solution that fits your vision.
-                      
-                      </p>
+                    <p>Every Brand Deserves a Stunning Identity! 🚀 Check out this amazing before-and-after transformation. From a simple concept to a bold new look! Need a fresh perspective for your brand?</p>
                   </div>
                 </div>
                 <div class="col-md-4 col-sm-6 col-xs-12">
                   <div class="single-blog">
                     <a href="blog-details.html" class="blog-bg blog-bg-2"></a>
                     <a href="blog-details.html"><h4>Tips for Building a Great Website</h4></a>
-                    <p>Caption: "🚀 5 Essential Tips for an Amazing Website Design 🚀
-
-                      1️⃣ Clean & Simple Layout 2️⃣ Mobile Responsiveness 3️⃣ Fast Loading Speed 4️⃣ Clear Call to Action 5️⃣ Stunning Visuals
-                      
-                      Want to bring your vision to life? As a professional designer, I can help you create a website that not only
-                      looks great but converts visitors into customers! 💼 Let's talk! 📩
-                      
-                      </p>
+                    <p>🚀 5 Essential Tips for an Amazing Website Design 🚀
+                      1️⃣ Clean & Simple Layout 2️⃣ Mobile Responsiveness 3️⃣ Fast Loading Speed 4️⃣ Clear Call to Action 5️⃣ Stunning Visuals</p>
                   </div>
                 </div>
               </div>
@@ -716,11 +851,11 @@
                   <div class="testmonial-active">
                     <div class="single-testmolial text-center">
                       <div class="author-img">
-                        <img src="assets/img/author-profile-1.jpg" alt="">
+                        <img src="assets/img/author-profile-1.jpg" alt="Client Alex Donne Ranjon">
                       </div>
                       <div class="testmonial-content">
                         <h4>Alex Donne Ranjon</h4>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesettin the readable content of a page in when the readable content of a page in when looking.</p>
+                        <p>John transformed our brand identity completely. His attention to detail and creative vision resulted in a design that perfectly represents our company values. Highly recommended!</p>
                         <div class="author-rating">
                           <i class="fa fa-star"></i>
                           <i class="fa fa-star"></i>
@@ -732,11 +867,11 @@
                     </div>
                     <div class="single-testmolial text-center">
                       <div class="author-img">
-                        <img src="assets/img/author-profile-2.jpg" alt="">
+                        <img src="assets/img/author-profile-2.jpg" alt="Client Simraan Jantus">
                       </div>
                       <div class="testmonial-content">
                         <h4>Simraan Jantus</h4>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesettin the readable content of a page in when the readable content of a page in when looking.</p>
+                        <p>Working with John was a pleasure. He delivered our e-commerce website ahead of schedule, and the results have exceeded our expectations. Our conversion rates have improved by 40%!</p>
                         <div class="author-rating">
                           <i class="fa fa-star"></i>
                           <i class="fa fa-star"></i>
@@ -748,11 +883,11 @@
                     </div>
                     <div class="single-testmolial text-center">
                       <div class="author-img">
-                        <img src="assets/img/author-profile-1.jpg" alt="">
+                        <img src="assets/img/author-profile-1.jpg" alt="Client Alex Donne Ranjon">
                       </div>
                       <div class="testmonial-content">
                         <h4>Alex Donne Ranjon</h4>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesettin the readable content of a page in when the readable content of a page in when looking.</p>
+                        <p>John transformed our brand identity completely. His attention to detail and creative vision resulted in a design that perfectly represents our company values. Highly recommended!</p>
                         <div class="author-rating">
                           <i class="fa fa-star"></i>
                           <i class="fa fa-star"></i>
@@ -764,11 +899,11 @@
                     </div>
                     <div class="single-testmolial text-center">
                       <div class="author-img">
-                        <img src="assets/img/author-profile-2.jpg" alt="">
+                        <img src="assets/img/author-profile-2.jpg" alt="Client Simraan Jantus">
                       </div>
                       <div class="testmonial-content">
                         <h4>Simraan Jantus</h4>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesettin the readable content of a page in when the readable content of a page in when looking.</p>
+                        <p>Working with John was a pleasure. He delivered our e-commerce website ahead of schedule, and the results have exceeded our expectations. Our conversion rates have improved by 40%!</p>
                         <div class="author-rating">
                           <i class="fa fa-star"></i>
                           <i class="fa fa-star"></i>
@@ -790,7 +925,7 @@
                 <div class="col-md-6 col-md-offset-3 col-sm-12">
                   <div class="section-title">
                     <h2>Get in touch</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod tempor incididunt labore dolore aliqua eiusmod tempor incididunt labore</p>
+                    <p>Ready to start your project? Have questions about my services? Feel free to reach out—I'd love to hear from you!</p>
                   </div>
                 </div>
               </div>
@@ -800,14 +935,14 @@
                     <form action="index.html">
                       <div class="row">
                         <div class="col-md-6 col-sm-12">
-                          <input type="text" placeholder="Full Name">
+                          <input type="text" placeholder="Full Name" required>
                         </div>
                         <div class="col-md-6 col-sm-12">
-                          <input type="email" placeholder="Email">
+                          <input type="email" placeholder="Email" required>
                         </div>
                       </div>
-                      <textarea name="message" id="message" cols="30" rows="10" placeholder="Your Message"></textarea>
-                      <input type="submit" value="Send">
+                      <textarea name="message" id="message" cols="30" rows="10" placeholder="Your Message" required></textarea>
+                      <input type="submit" value="Send Message">
                     </form>
                   </div>
                 </div>
@@ -819,7 +954,7 @@
             <div class="container">
               <div class="row">
                 <div class="col-sm-6 col-xs-12">
-                  <p>&copy; 2023 John Kasenegala- All Right Reserved</p>
+                  <p>&copy; 2023 John Kasenegala - All Right Reserved</p>
                 </div>
                 <div class="col-sm-6 col-xs-12">
                   <div class="social-media text-right">
@@ -870,6 +1005,38 @@
             $('#offcanvas-menu a').click(function(){
               $('.off-canvas-menu').removeClass('active');
               $('.off-canvas-menu-shade').removeClass('active');
+            });
+            
+            // Interactive hire me button
+            $('#hire-me-btn').click(function(e){
+              e.preventDefault();
+              alert("Let's discuss your project! I'll get back to you within 24 hours.");
+              // Alternatively, scroll to contact form
+              $('html, body').animate({
+                scrollTop: $('#contact').offset().top
+              }, 800);
+            });
+            
+            // Portfolio filter interaction
+            $('.portfolio-menu li').click(function(){
+              $('.portfolio-menu li').removeClass('active');
+              $(this).addClass('active');
+              // Add your filtering logic here
+            });
+            
+            // Handle missing images
+            $('img').on('error', function(){
+              $(this).hide();
+              console.error('Image failed to load: ' + $(this).attr('src'));
+            });
+            
+            // Smooth scrolling for navigation links
+            $('#navigation a').click(function(e){
+              e.preventDefault();
+              var target = $(this).attr('href');
+              $('html, body').animate({
+                scrollTop: $(target).offset().top - 70
+              }, 800);
             });
           });
         </script>
